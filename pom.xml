@@ -1,13 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.github.josedelriocenteno</groupId>
-    <artifactId>ud1-ud4-resumen-java-fundamentos</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+
+    <!-- Identidad del proyecto -->
+    <groupId>com.delcenjo</groupId>          <!-- Usualmente dominio inverso -->
+    <artifactId>ud1-ud4-resumen-java-fundamentos</artifactId> <!-- Igual que repo -->
+    <version>1.0-SNAPSHOT</version>        <!-- Versión inicial -->
+    <packaging>jar</packaging>             <!-- jar por defecto -->
+
+    <name>UD1-UD4 Resumen Java Fundamentos</name>
+    <description>Resumen de Java básico para las unidades 1 a 4</description>
+
+    <!-- Configuración del compilador -->
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>21</maven.compiler.release>
-        <exec.mainClass>com.github.josedelriocenteno.ud1ud4.Ud1Ud4ResumenJavaFundamentos</exec.mainClass>
+        <maven.compiler.source>21</maven.compiler.source>  <!-- JDK que usas -->
+        <maven.compiler.target>21</maven.compiler.target>
     </properties>
+
+    <!-- Dependencias si las necesitas -->
+    <dependencies>
+        <!-- Ejemplo de dependencia, agrega según proyecto -->
+        <!--
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.10.0</version>
+            <scope>test</scope>
+        </dependency>
+        -->
+    </dependencies>
 </project>
