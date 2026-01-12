@@ -1,0 +1,128 @@
+═══════════════════════════════════════════════════════════════════════════════
+                    APUNTES FECHAS JAVA.TIME - DAM COMPLETO
+═══════════════════════════════════════════════════════════════════════════════
+
+ESTRUCTURA CARPETA: /home/delcenjo/java/apuntes/03-Fechas/
+├── 01-LocalDateTime.java      │  02-ZonedDateTime.java
+├── 03-DateTimeFormatter.java  │  04-PeriodDuration.java  
+├── 05-EjemplosPrácticos.java  │  README.md + compile-all.sh
+
+IMPORTS POR ARCHIVO (sin wildcard - profe OK):
+01: LocalDate, LocalTime, LocalDateTime, ChronoUnit
+02: ZonedDateTime, ZoneId, OffsetDateTime
+03: LocalDate, LocalDateTime, DateTimeFormatter
+04: LocalDate, LocalDateTime, Period, Duration, ChronoUnit
+05: Todos arriba
+
+═══════════════════════════════════════════════════════════════════════════════
+ESQUEMA CLASES (lo que has aprendido)
+═══════════════════════════════════════════════════════════════════════════════
+java.time
+├── 📅 BÁSICAS → 01-LocalDateTime.java
+│   ├── LocalDate: 2026-01-10
+│   ├── LocalTime: 14:25:45
+│   └── LocalDateTime: 2026-01-10T14:25 ⭐
+├── 🌍 ZONAS → 02-ZonedDateTime.java
+│   ├── ZonedDateTime: +01:00[Europe/Madrid] ⭐
+│   └── OffsetDateTime: +01:00
+├── ⏱️ INTERVALOS → 04-PeriodDuration.java
+│   ├── Period: P1Y2M10D ⭐
+│   └── Duration: PT8H30M ⭐
+├── 📍 ZONA → 02-ZonedDateTime.java
+│   └── ZoneId: "Europe/Madrid" ⭐
+├── 📝 FORMATO → 03-DateTimeFormatter.java
+│   └── DateTimeFormatter: "10/01/2026" ⭐
+└── ⚡ INSTANT → 05-EjemplosPrácticos.java
+
+═══════════════════════════════════════════════════════════════════════════════
+01-LOCALDATETIME.JAVA - BÁSICAS
+═══════════════════════════════════════════════════════════════════════════════
+import java.time.LocalDate;
+import java.time.LocalTime;  
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+
+LocalDate.now()           → 2026-01-10
+LocalDate.of(2006,5,15)   → cumpleaños
+hoy.plusDays(1)           → mañana (INMUTABLE)
+LocalDateTime.now()       → 2026-01-10T14:25
+LocalDateTime.of(2026,9,1,9,0) → inicio DAM
+hoy.atTime(14,30)         → combina
+ahora.plusYears(1)        → cadena métodos
+
+═══════════════════════════════════════════════════════════════════════════════
+02-ZONEDDATETIME.JAVA - ZONAS
+═══════════════════════════════════════════════════════════════════════════════
+import java.time.ZonedDateTime;
+import java.time.ZoneId;
+import java.time.OffsetDateTime;
+
+ZonedDateTime.now(ZoneId.systemDefault()) → Madrid CET
+ZonedDateTime.now(ZoneId.of("UTC"))      → UTC
+ZonedDateTime.of(2026,1,20,10,ZoneId.of("Europe/Madrid"))
+ZoneId.systemDefault()                   → Europe/Madrid
+ZoneId.getAvailableZoneIds().size()      → 600+ zonas
+withZoneSameInstant("America/New_York")  → 08:25 NY
+zoned.toOffsetDateTime()                 → +01:00
+
+═══════════════════════════════════════════════════════════════════════════════
+03-DATETIMEFORMATTER.JAVA - FORMATO
+═══════════════════════════════════════════════════════════════════════════════
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+DateTimeFormatter fmt = ofPattern("dd/MM/yyyy")
+hoy.format(fmt)              → "10/01/2026"
+LocalDate.parse("10/01/2026", fmt) → objeto
+ofPattern("dd 'de' MMMM")    → "10 de enero 2026"
+ofPattern("EEEE dd MMM")     → "sábado 10 ene"
+ISO_LOCAL_DATE               → "2026-01-10"
+
+═══════════════════════════════════════════════════════════════════════════════
+04-PERIODSURATION.JAVA - DIFERENCIAS
+═══════════════════════════════════════════════════════════════════════════════
+import java.time.Period;
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
+
+Period.between(hoy,futuro) → P1Y0M0D
+period.getYears()          → 1
+Duration.between(9:00,17:30) → PT8H30M
+duration.toHours()         → 8
+ChronoUnit.DAYS.between()  → 365 días exactos
+Period.of(0,6,0)           → 6 meses
+
+═══════════════════════════════════════════════════════════════════════════════
+05-EJEMPLOSPRÁCTICOS.JAVA - REAL DAM
+═══════════════════════════════════════════════════════════════════════════════
+CUMPLEAÑOS: Period.between(hoy,cumple) → días restantes
+JORNADA: Duration.between(9:00,17:30) → 8.5h
+VACACIONES: ZonedDateTime Madrid→NY sameInstant
+AWS EXAMEN: ChronoUnit.DAYS.between(hoy,2026-06-30)
+LOGS: parse("10/01/2026 09:00") → Duration
+SEMANA: Lunes9→Viernes18 → 69h
+
+═══════════════════════════════════════════════════════════════════════════════
+CHULETAS RÁPIDAS
+═══════════════════════════════════════════════════════════════════════════════
+PATRONES FORMATO:
+dd/MM/yyyy     → 10/01/2026
+dd 'de' MMMM   → 10 de enero
+hh:mm a        → 02:25 PM
+
+RANGOS ZONAS:
+Europe/Madrid, Atlantic/Canary, UTC, America/New_York
+
+FÓRMULAS:
+Días exactos: ChronoUnit.DAYS.between(date1,date2)
+Horas: Duration.between(time1,time2).toHours()
+
+COMPILAR:
+cd 03-Fechas/
+javac *.java
+java 05_EjemplosPrácticos
+
+═══════════════════════════════════════════════════════════════════════════════
+¡SERIE FECHAS 100% COMPLETA! - 10/01/2026 14:25 CET
+═══════════════════════════════════════════════════════════════════════════════

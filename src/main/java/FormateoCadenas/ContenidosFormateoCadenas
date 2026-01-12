@@ -1,0 +1,177 @@
+API de Java
+VIII – Formateo de cadenas
+================================
+
+ÍNDICE GENERAL DE APUNTES-CÓDIGO (.java)
+---------------------------------------
+
+Este archivo sirve como guía permanente para saber qué contiene cada archivo
+del bloque:
+API de Java → VIII – Formateo de cadenas
+
+Enfoque:
+- Un concepto por archivo
+- Ejemplos ejecutables
+- Mucho comentario
+- Nivel DAM (apuntes serios, no copia-pega)
+
+
+ESTRUCTURA DE CARPETAS Y ARCHIVOS
+--------------------------------
+
+api-java/
+└── VIII_Formateo_Cadenas/
+    ├── 00_Introduccion_Formateo.java
+    ├── 01_StringFormat_Basico.java
+    ├── 02_Printf_y_Format.java
+    ├── 03_Especificadores_Formato/
+    │   ├── 03a_Especificadores_Generales.java
+    │   ├── 03b_Especificadores_Numericos.java
+    │   ├── 03c_Especificadores_Texto.java
+    │   └── 03d_Especificadores_Especiales.java
+    ├── 04_Formateo_Fechas_Horas/
+    │   ├── 04a_Prefijo_t_DateTime.java
+    │   ├── 04b_Fechas_Formato_Completo.java
+    │   └── 04c_Ejemplos_Fechas.java
+    ├── 05_Formateo_Argumentos/
+    │   ├── 05a_Indice_Argumentos.java
+    │   ├── 05b_Ancho_y_Justificacion.java
+    │   ├── 05c_Relleno_Ceros.java
+    │   └── 05d_Combinacion_Flags.java
+    └── 99_Resumen_y_Buenas_Practicas.java
+
+
+DESCRIPCIÓN DE CADA ARCHIVO
+---------------------------
+
+00_Introduccion_Formateo.java
+Objetivo: contexto y motivación
+- Qué es formatear cadenas
+- Por qué NO concatenar con +
+- Casos reales: consola, informes, logs
+- Ejemplo simple sin profundizar
+
+
+01_StringFormat_Basico.java
+Objetivo: método principal
+- Qué es String.format
+- Sintaxis general:
+  String.format("cadena de formato", argumentos);
+- Ejemplos básicos comentados línea a línea
+
+
+02_Printf_y_Format.java
+Objetivo: salida por consola
+- Diferencias entre:
+  * String.format
+  * System.out.printf
+  * System.out.format
+- Cuándo usar cada uno
+- Ejemplos equivalentes
+
+
+03_Especificadores_Formato/
+---------------------------
+
+03a_Especificadores_Generales.java
+- %b, %h, %n
+- Tipos que aceptan
+- Ejemplos comentados
+
+
+03b_Especificadores_Numericos.java
+- %d, %f, %e, %g, %o, %x, %a
+- Decimales
+- Notación científica
+- Hexadecimal
+- Diferencias clave
+
+
+03c_Especificadores_Texto.java
+- %s, %c
+- Conversión automática a String
+- Unicode y caracteres
+
+
+03d_Especificadores_Especiales.java
+- %n (salto de línea portable)
+- Errores comunes
+- Comparación con \n
+
+
+04_Formateo_Fechas_Horas/
+------------------------
+
+04a_Prefijo_t_DateTime.java
+- Qué significa %t
+- Tipos compatibles:
+  * Date
+  * Calendar
+  * LocalDateTime
+- Estructura general
+
+
+04b_Fechas_Formato_Completo.java
+- Tabla explicada en código de:
+  * %tA, %ta
+  * %tB, %tb
+  * %tY, %ty
+  * %tH, %tI, %tM, %tS
+  * %tZ, %tz
+- Cada especificador explicado con comentarios
+
+
+04c_Ejemplos_Fechas.java
+- Fechas completas
+- Horas en formato 12h y 24h
+- Ejemplos reales comentados
+
+
+05_Formateo_Argumentos/
+----------------------
+
+05a_Indice_Argumentos.java
+- Uso de índices con $
+- Ejemplo:
+  String.format("%2$d %1$d", 10, 20);
+- Por qué es útil
+- Casos reales
+
+
+05b_Ancho_y_Justificacion.java
+- Ancho fijo
+- Justificación derecha e izquierda
+- Ejemplos:
+  %20d
+  %-20d
+
+
+05c_Relleno_Ceros.java
+- Relleno con ceros
+- Ejemplo:
+  %020d
+- Diferencias con espacios
+- Casos típicos: IDs, facturas
+
+
+05d_Combinacion_Flags.java
+- Combinar ancho, justificación y relleno
+- Ejemplos complejos
+- Errores frecuentes
+
+
+99_Resumen_y_Buenas_Practicas.java
+Objetivo: cierre del tema
+- Resumen visual
+- Cuándo usar String.format
+- Cuándo NO usarlo
+- Errores típicos de examen
+- Consejos prácticos DAM
+
+
+NOTAS FINALES
+-------------
+- Un concepto = un archivo
+- Mucho comentario
+- Ejemplos ejecutables
+- Estructura pensada para estudiar y repasar rápido

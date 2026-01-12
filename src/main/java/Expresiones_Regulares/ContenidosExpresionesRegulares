@@ -1,0 +1,117 @@
+API de Java
+IX – Expresiones Regulares
+==========================
+
+## ÍNDICE GENERAL DE APUNTES-CÓDIGO (.java)
+
+Este archivo sirve como guía permanente para saber qué contiene cada archivo
+del bloque:
+API de Java → IX – Expresiones Regulares
+
+Enfoque:
+
+* Un concepto por archivo
+* Ejemplos ejecutables
+* Mucho comentario
+* Nivel DAM (apuntes serios, no copia-pega)
+
+## ESTRUCTURA DE CARPETAS Y ARCHIVOS
+
+api-java/
+└── IX_Expresiones_Regulares/
+├── 00_Introduccion_RegEx.java
+├── 01_Simbolos_Basicos.java
+├── 02_MetaCaracteres.java
+├── 03_Cuantificadores.java
+├── 04_Clases_Pattern_Matcher.java
+├── 05_Validaciones_Comunes/
+│   ├── 05a_Validar_DNI.java
+│   ├── 05b_Validar_Email.java
+│   └── 05c_Validar_Telefono.java
+└── 99_Resumen_y_BuenasPracticas_RegEx.java
+
+## DESCRIPCIÓN DE CADA ARCHIVO
+
+00_Introduccion_RegEx.java
+Objetivo: contexto y motivación
+
+* Qué son las expresiones regulares
+* Para qué se usan (validación de patrones, DNI, email, teléfono)
+* Ejemplo conceptual de búsqueda de patrón dentro de un String
+
+01_Simbolos_Basicos.java
+Objetivo: símbolos básicos
+
+* . (cualquier carácter)
+* ^expresión (inicio del String)
+* expresión$ (final del String)
+* [abc] (conjunto)
+* [^abc] (negación)
+* [a-z1-9] (rango)
+* A|B (OR)
+* AB (concatenación)
+* Ejemplos comentados en Java con Pattern y Matcher
+
+02_MetaCaracteres.java
+Objetivo: meta-caracteres más usados
+
+* \d, \D (dígito/no dígito)
+* \s, \S (espacio/no espacio)
+* \w, \W (letra, dígito, _ / no letra, dígito, _)
+* \b (límite de palabra)
+* Ejemplos prácticos con matches() y find()
+
+03_Cuantificadores.java
+Objetivo: repetición de patrones
+
+* {X} (exactamente X veces)
+* {X,Y} (mínimo X, máximo Y veces)
+* {X,} (mínimo X, sin máximo)
+* * (0 o más)
+* * (1 o más)
+* ? (0 o 1)
+* Ejemplos comentados y casos de error
+
+04_Clases_Pattern_Matcher.java
+Objetivo: uso en Java
+
+* Pattern.compile(String regex)
+* Matcher.matches(CharSequence input) → validar todo el String
+* Matcher.find() → buscar patrón dentro del String
+* Manejo de PatternSyntaxException
+* Ejemplos prácticos comentados
+
+## 05_Validaciones_Comunes/
+
+05a_Validar_DNI.java
+
+* Expresión regular para DNI español (8 números + letra)
+* Validación con Pattern y Matcher
+* Ejemplos comentados
+
+05b_Validar_Email.java
+
+* Expresión regular para correo electrónico
+* Casos válidos e inválidos
+* Ejemplo con matches()
+
+05c_Validar_Telefono.java
+
+* Expresión regular para teléfono (9 dígitos, opcional +34)
+* Validación y ejemplos
+
+99_Resumen_y_BuenasPracticas_RegEx.java
+Objetivo: cierre del tema
+
+* Tabla de símbolos, meta-caracteres y cuantificadores
+* Buenas prácticas en Java
+* Errores frecuentes (confundir matches() y find(), olvidar )
+* Consejos DAM y examen
+
+## NOTAS FINALES
+
+* Un concepto = un archivo
+* Mucho comentario
+* Ejemplos ejecutables
+* Estructura pensada para estudiar y repasar rápido
+
