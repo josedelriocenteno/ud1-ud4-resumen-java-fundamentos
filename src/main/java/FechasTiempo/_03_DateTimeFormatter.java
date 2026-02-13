@@ -25,6 +25,7 @@ package FechasTiempo;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 public class _03_DateTimeFormatter {
     public static void main(String[] args) {
@@ -80,6 +81,8 @@ public class _03_DateTimeFormatter {
         System.out.printf("ISO zona: %s%n", 
                          ahora.format(DateTimeFormatter.ISO_ZONED_DATE_TIME));
         // 2026-01-10T14:21:xx+01:00[Europe/Madrid]
+        
+        System.out.println("Formato largo FULL: " + ahora.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)));
         
         
         // ===== 4. Locale Español (Opcional) =====
